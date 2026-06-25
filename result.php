@@ -136,30 +136,19 @@
         <h1>📊 ผลการคำนวณปริมาตร</h1>
         
         <?php
-            // ตรวจสอบว่ามีข้อมูลที่ส่งมาหรือไม่
-            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['side1']) && isset($_POST['side2']) && isset($_POST['side3'])) {
-                $side1 = floatval($_POST['side1']);
-                $side2 = floatval($_POST['side2']);
-                $side3 = floatval($_POST['side3']);
+            // ตรวจสอบว่ามีข้อมูลที่ส่งมาหรือไม่ และรับเฉพาะค่า 'side'
+            if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['side'])) {
+                $side = floatval($_POST['side']);
                 
                 // ตรวจสอบค่าว่าเป็นบวกหรือไม่
-                if ($side1 > 0 && $side2 > 0 && $side3 > 0) {
-                    $volume = $side1 * $side2 * $side3;
+                if ($side > 0) {
+                    // คำนวณปริมาตรโดยการยกกำลังสาม
+                    $volume = pow($side, 3);
                     
                     echo '<div class="result-box">';
                     echo '<div class="result-item">';
-                    echo '<span class="result-label">ด้าน 1:</span>';
-                    echo '<span class="result-value">' . number_format($side1, 2) . ' หน่วย</span>';
-                    echo '</div>';
-                    
-                    echo '<div class="result-item">';
-                    echo '<span class="result-label">ด้าน 2:</span>';
-                    echo '<span class="result-value">' . number_format($side2, 2) . ' หน่วย</span>';
-                    echo '</div>';
-                    
-                    echo '<div class="result-item">';
-                    echo '<span class="result-label">ด้าน 3:</span>';
-                    echo '<span class="result-value">' . number_format($side3, 2) . ' หน่วย</span>';
+                    echo '<span class="result-label">ความยาวด้านที่กำหนด:</span>';
+                    echo '<span class="result-value">' . number_format($side, 2) . ' หน่วย</span>';
                     echo '</div>';
                     echo '</div>';
                     

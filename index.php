@@ -125,29 +125,19 @@
 <body>
     <div class="container">
         <h1>🧮 ค่าปริมาตรลูกบาศก์</h1>
-        <p class="subtitle">กรุณากรอกความยาวของแต่ละด้าน</p>
+        <p class="subtitle">กรุณากรอกความยาวของด้าน</p>
         
         <form action="result.php" method="post">
             <div class="form-group">
-                <label for="side1">📏 ความยาวด้าน 1 (หน่วย)</label>
-                <input type="number" id="side1" name="side1" step="0.01" required>
-            </div>
-
-            <div class="form-group">
-                <label for="side2">📏 ความยาวด้าน 2 (หน่วย)</label>
-                <input type="number" id="side2" name="side2" step="0.01" required>
-            </div>
-
-            <div class="form-group">
-                <label for="side3">📏 ความยาวด้าน 3 (หน่วย)</label>
-                <input type="number" id="side3" name="side3" step="0.01" required>
+                <label for="side">📏 ความยาวด้าน (หน่วย)</label>
+                <input type="number" id="side" name="side" step="0.01" required>
             </div>
 
             <input type="submit" value="คำนวณปริมาตร">
         </form>
         
         <div class="info">
-            💡 สูตร: ปริมาตร = ด้าน 1 × ด้าน 2 × ด้าน 3
+            💡 สูตร: ปริมาตร = ด้าน³ (ด้าน × ด้าน × ด้าน)
         </div>
     </div>
 </body>
